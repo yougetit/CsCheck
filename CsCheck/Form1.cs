@@ -207,6 +207,14 @@ namespace CsCheck
             //closeCom();
         }
 
+        //寫入查詢計數
+        void csCheckCount(string ptName, string ptID, string result, string drName)
+        {
+            string time = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            string sqlQuery = "INSERT INTO [GHHP].[dbo].[csCheckCount] (name, ID, datetime, result, dr) VALUES ('" + ptName + "', '" + ptID + "', '" + time + "', '" + result + "', '" + drName + "')";
+            MessageBox.Show(MyClass.ExecuteNonQuery(sqlQuery).ToString());
+        }
+
         //醫事人員卡認證
         void verifyHPC()
         {
@@ -750,6 +758,7 @@ namespace CsCheck
             sBusCode = System.Text.Encoding.Default.GetBytes(busCode);
             //讀卡機port
             int nCom = 0;
+
             //private static extern int hpcGetHPCSSN(byte[] SSN, ref int Len_SSN);醫事人員卡身分證
             int Len_SSN = 10;
             byte[] SSN = new byte[Len_SSN];
@@ -761,6 +770,7 @@ namespace CsCheck
                 return;
             }
             sHcaId = SSN;
+
             //病患基本資料
             byte[] sPatId = new byte[10];
             int buff = 72;
@@ -806,19 +816,23 @@ namespace CsCheck
             {
                 MessageBox.Show("用藥關懷名單有資料！！");
                 p = System.Diagnostics.Process.Start("IExplore.exe", result);
+                csCheckCount(Name, PID, "0", sHcaId.ToString());
                 
             }
             else if (nErrCode == 1)
             {
                 MessageBox.Show("查詢成功，無資料");
+                csCheckCount(Name, PID, "1", sHcaId.ToString());
             }
             else if (nErrCode == -1)
             {
                 MessageBox.Show("醫事機構端執行失敗");
+                csCheckCount(Name, PID, "-1", sHcaId.ToString());
             }
             else if (nErrCode == -2)
             {
                 MessageBox.Show("健保局服務主機端錯誤");
+                csCheckCount(Name, PID, "-2", sHcaId.ToString());
             }
 
             rtOutput.Text += DateTime.Now.ToLongTimeString() + "：" + result;
@@ -908,5 +922,6 @@ namespace CsCheck
         {
             p = System.Diagnostics.Process.Start("IExplore.exe", e.LinkText);
         }
+
     }
 }

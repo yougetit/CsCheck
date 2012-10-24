@@ -8,3 +8,13 @@ F:\原始檔程式\CsCheck\CsCheck\obj\Release\CsCheck.exe
 F:\原始檔程式\CsCheck\CsCheck\obj\Release\CsCheck.Form2.resources
 F:\原始檔程式\CsCheck\CsCheck\bin\Release\CsCheck.exe.config
 F:\原始檔程式\CsCheck\CsCheck\bin\Release\PEAT7403B01.dll
+F:\SourceCode\CsCheck\CsCheck\bin\Release\CsHis.dll
+F:\SourceCode\CsCheck\CsCheck\bin\Release\PEAT7403B01.dll
+F:\SourceCode\CsCheck\CsCheck\bin\Release\CsCheck.exe.config
+F:\SourceCode\CsCheck\CsCheck\bin\Release\CsCheck.exe
+F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.csprojResolveAssemblyReference.cache
+F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.Form1.resources
+F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.Form2.resources
+F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.Properties.Resources.resources
+F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.csproj.GenerateResource.Cache
+F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.exe
