@@ -212,6 +212,7 @@ namespace CsCheck
         {
             string time = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             string sqlQuery = "INSERT INTO [GHHP].[dbo].[csCheckCount] (name, ID, datetime, result, dr) VALUES ('" + ptName + "', '" + ptID + "', '" + time + "', '" + result + "', '" + drName + "')";
+            MyClass.ExecuteNonQuery(sqlQuery);
             //MessageBox.Show(MyClass.ExecuteNonQuery(sqlQuery).ToString());
         }
 
