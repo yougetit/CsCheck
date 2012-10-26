@@ -212,7 +212,7 @@ namespace CsCheck
         {
             string time = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             string sqlQuery = "INSERT INTO [GHHP].[dbo].[csCheckCount] (name, ID, datetime, result, dr) VALUES ('" + ptName + "', '" + ptID + "', '" + time + "', '" + result + "', '" + drName + "')";
-            MessageBox.Show(MyClass.ExecuteNonQuery(sqlQuery).ToString());
+            //MessageBox.Show(MyClass.ExecuteNonQuery(sqlQuery).ToString());
         }
 
         //醫事人員卡認證
@@ -811,28 +811,29 @@ namespace CsCheck
             byte[] sBuf = new byte[nSize];
             PEA_GetMsg(sBuf, ref nSize);
             string result = BIG5.GetString(sBuf);
+            string drname = System.Text.Encoding.Default.GetString(sHcaId);
 
             if (nErrCode == 0)
             {
                 MessageBox.Show("用藥關懷名單有資料！！");
                 p = System.Diagnostics.Process.Start("IExplore.exe", result);
-                csCheckCount(Name, PID, "0", sHcaId.ToString());
+                csCheckCount(Name, PID, "0", drname);
                 
             }
             else if (nErrCode == 1)
             {
                 MessageBox.Show("查詢成功，無資料");
-                csCheckCount(Name, PID, "1", sHcaId.ToString());
+                csCheckCount(Name, PID, "1", drname);
             }
             else if (nErrCode == -1)
             {
                 MessageBox.Show("醫事機構端執行失敗");
-                csCheckCount(Name, PID, "-1", sHcaId.ToString());
+                csCheckCount(Name, PID, "-1", drname);
             }
             else if (nErrCode == -2)
             {
                 MessageBox.Show("健保局服務主機端錯誤");
-                csCheckCount(Name, PID, "-2", sHcaId.ToString());
+                csCheckCount(Name, PID, "-2", drname);
             }
 
             rtOutput.Text += DateTime.Now.ToLongTimeString() + "：" + result;
