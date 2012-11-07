@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.IO;
 
 namespace CsCheck
 {
@@ -418,10 +419,19 @@ namespace CsCheck
                     row[6] = BIG5.GetString(pOutpatientPrescription, (i * 61) + 26, 6).Trim();//診療部位
                     row[7] = BIG5.GetString(pOutpatientPrescription, (i * 61) + 32, 18).Trim();//用法
                     row[8] = BIG5.GetString(pOutpatientPrescription, (i * 61) + 50, 2).Trim();//天數
-                    row[9] = Convert.ToDouble(BIG5.GetString(pOutpatientPrescription, (i * 61) + 52, 7).Trim()) / 100;//總量
+                    string amount1 = BIG5.GetString(pOutpatientPrescription, (i * 61) + 52, 7).Trim();
+                    if (amount1 == string.Empty)
+                    {
+                        row[9] = amount1;
+                    }
+                    else
+                    {
+                        row[9] = Convert.ToDouble(BIG5.GetString(pOutpatientPrescription, (i * 61) + 52, 7).Trim()) / 100;//總量
+                    }
                     //row[7] = System.Text.RegularExpressions.Regex.Match(BIG5.GetString(pOutpatientPrescription, (i * 61) + 52, 7).Trim(), reg);
                     row[10] = BIG5.GetString(pOutpatientPrescription, (i * 61) + 59, 2).Trim();//交付處方註記
                     dt1.Rows.Add(row);
+                    
                     
                 }
                 dataGridView1.Columns[0].Width = 40;
@@ -924,6 +934,5 @@ namespace CsCheck
         {
             p = System.Diagnostics.Process.Start("IExplore.exe", e.LinkText);
         }
-
     }
 }

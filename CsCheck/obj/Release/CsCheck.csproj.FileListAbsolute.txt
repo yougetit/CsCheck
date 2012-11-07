@@ -7,3 +7,4 @@ F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.Form2.resources
 F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.Properties.Resources.resources
 F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.csproj.GenerateResource.Cache
 F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.exe
+F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.csprojResolveAssemblyReference.cache
