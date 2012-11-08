@@ -1,0 +1,9 @@
+F:\SourceCode\CsCheck\CsCheck\bin\Debug\CsHis.dll
+F:\SourceCode\CsCheck\CsCheck\bin\Debug\PEAT7403B01.dll
+F:\SourceCode\CsCheck\CsCheck\bin\Debug\CsCheck.exe.config
+F:\SourceCode\CsCheck\CsCheck\bin\Debug\CsCheck.exe
+F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.Form1.resources
+F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.Form2.resources
+F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.Properties.Resources.resources
+F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.csproj.GenerateResource.Cache
+F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.exe

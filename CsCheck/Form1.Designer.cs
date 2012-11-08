@@ -433,7 +433,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "台中靜和醫院--健保卡查詢程式，更新日期：2012-11-07 16:00更新日期：";
+            this.Text = "台中靜和醫院--健保卡查詢程式，更新日期：2012-11-07 16:00";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
