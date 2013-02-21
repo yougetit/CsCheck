@@ -758,7 +758,7 @@ namespace CsCheck
             //private static extern int PEA_SamExeNhiQuery(byte[] sHostName, int nPort,byte[] sBusCode,int nCom,byte[] sHcaId,byte[] sPatId,byte[] sPatBirth);
             openCom();
             //健保局vpn ip
-            string ip = "10.253.253.242";
+            string ip = "10.253.253.243";
             byte[] sHostName = new byte[14];
             sHostName = System.Text.Encoding.Default.GetBytes(ip);
             //健保局vpn port
