@@ -55,10 +55,10 @@ namespace CsCheck
         private static extern int hisGetTreatmentNeedHPC(byte[] pBuffer, ref int iBufferLen);
         //保險對象特定醫療資訊查詢作業
         [DllImport("PEAT7403B01.dll")]
-        private static extern int PEA_SamExeNhiQuery(byte[] sHostName, int nPort,byte[] sBusCode,int nCom,byte[] sHcaId,byte[] sPatId,byte[] sPatBirth);
+        private static extern int PEA_SamExeNhiQuery(byte[] sHostName, int nPort, byte[] sBusCode, int nCom, byte[] sHcaId, byte[] sPatId, byte[] sPatBirth);
         //讀取錯誤訊息
         [DllImport("PEAT7403B01.dll")]
-        private static extern void PEA_GetMsg(byte[] sBuf,ref int nSize);
+        private static extern void PEA_GetMsg(byte[] sBuf, ref int nSize);
         //讀取醫事人員卡身分證
         [DllImport("CsHis.dll")]
         private static extern int hpcGetHPCSSN(byte[] SSN, ref int Len_SSN);
@@ -93,7 +93,7 @@ namespace CsCheck
         //寫入訊息
         void msg(string msg)
         {
-            
+
             string text = DateTime.Now.ToLongTimeString() + "：" + msg + "\r\n";
             rtOutput.Text += text;
             downTextbox();
@@ -173,7 +173,7 @@ namespace CsCheck
 
         //SAM認證
         void verifySAM()
-        {       
+        {
             //if (checkSAMStatus() == true)
             //{
             //    msg("讀卡機認證成功。");
@@ -288,10 +288,10 @@ namespace CsCheck
             {
                 if (dgv.Rows[i].Cells[5].Value.ToString().Contains("ZOLPIDEM"))
                 {
-                        dgv.Rows[i].Cells[3].Style.BackColor = Color.Yellow;
-                        dgv.Rows[i].Cells[4].Style.BackColor = Color.Yellow;
-                        dgv.Rows[i].Cells[5].Style.BackColor = Color.Yellow;
-                        //dgv.Rows[i].Cells[3].Value = "kkkkkk";
+                    dgv.Rows[i].Cells[3].Style.BackColor = Color.Yellow;
+                    dgv.Rows[i].Cells[4].Style.BackColor = Color.Yellow;
+                    dgv.Rows[i].Cells[5].Style.BackColor = Color.Yellow;
+                    //dgv.Rows[i].Cells[3].Value = "kkkkkk";
                 }
             }
             for (int i = 0; i < dgv.Rows.Count - 1; i++)
@@ -379,7 +379,7 @@ namespace CsCheck
                 column.ColumnName = "交付處方註記";
                 dt1.Columns.Add(column);
                 dataGridView1.DataSource = dt1;
-                
+
                 //迴圈讀取處方籤
                 for (int i = 0; i < 60; i++)
                 {
@@ -431,8 +431,8 @@ namespace CsCheck
                     //row[7] = System.Text.RegularExpressions.Regex.Match(BIG5.GetString(pOutpatientPrescription, (i * 61) + 52, 7).Trim(), reg);
                     row[10] = BIG5.GetString(pOutpatientPrescription, (i * 61) + 59, 2).Trim();//交付處方註記
                     dt1.Rows.Add(row);
-                    
-                    
+
+
                 }
                 dataGridView1.Columns[0].Width = 40;
                 dataGridView1.Columns[1].Width = 100;
@@ -619,7 +619,7 @@ namespace CsCheck
             f2.Hide();
             this.Cursor = Cursors.Default;
 
-            if (nErrCode != 0 )
+            if (nErrCode != 0)
             {
                 msg("讀取錯誤。" + ErrCode.errMsg(nErrCode));
                 closeCom();
@@ -829,7 +829,7 @@ namespace CsCheck
                 MessageBox.Show("用藥關懷名單有資料！！");
                 p = System.Diagnostics.Process.Start("IExplore.exe", result);
                 csCheckCount(Name, PID, "0", drname);
-                
+
             }
             else if (nErrCode == 1)
             {
@@ -897,13 +897,13 @@ namespace CsCheck
 
         private void button9_Click(object sender, EventArgs e)
         {
-             checkSAMStatus();
-             checkHPCStatus();
-             openCom();
-             msg("安全模組狀態：" + hisGetCardStatus(1));
-             msg("健保ic卡狀態：" + hisGetCardStatus(2));
-             msg("醫事人員卡狀態：" + hisGetCardStatus(3));
-             closeCom();
+            checkSAMStatus();
+            checkHPCStatus();
+            openCom();
+            msg("安全模組狀態：" + hisGetCardStatus(1));
+            msg("健保ic卡狀態：" + hisGetCardStatus(2));
+            msg("醫事人員卡狀態：" + hisGetCardStatus(3));
+            closeCom();
 
         }
 
