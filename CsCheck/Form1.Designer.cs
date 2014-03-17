@@ -61,6 +61,8 @@
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.button9 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -79,9 +81,9 @@
             // 
             this.button3.Location = new System.Drawing.Point(565, 7);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 47);
+            this.button3.Size = new System.Drawing.Size(97, 54);
             this.button3.TabIndex = 2;
-            this.button3.Text = "讀卡機認證";
+            this.button3.Text = "讀卡機認證(隱藏)";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -89,9 +91,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(228, 7);
+            this.button4.Location = new System.Drawing.Point(213, 7);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(144, 54);
+            this.button4.Size = new System.Drawing.Size(82, 54);
             this.button4.TabIndex = 3;
             this.button4.Text = "讀取健保卡資料";
             this.button4.UseVisualStyleBackColor = true;
@@ -100,7 +102,7 @@
             // rtOutput
             // 
             this.rtOutput.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.rtOutput.Location = new System.Drawing.Point(37, 539);
+            this.rtOutput.Location = new System.Drawing.Point(41, 450);
             this.rtOutput.Name = "rtOutput";
             this.rtOutput.ReadOnly = true;
             this.rtOutput.Size = new System.Drawing.Size(897, 109);
@@ -112,9 +114,9 @@
             // 
             this.button5.Location = new System.Drawing.Point(439, 7);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(120, 47);
+            this.button5.Size = new System.Drawing.Size(120, 54);
             this.button5.TabIndex = 5;
-            this.button5.Text = "醫事人員卡認證";
+            this.button5.Text = "醫事人員卡認證(隱藏)";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Visible = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -181,7 +183,7 @@
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(37, 67);
+            this.groupBox1.Location = new System.Drawing.Point(37, 76);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(901, 121);
             this.groupBox1.TabIndex = 11;
@@ -286,10 +288,10 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tabControl1.Location = new System.Drawing.Point(37, 196);
+            this.tabControl1.Location = new System.Drawing.Point(37, 208);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(901, 337);
+            this.tabControl1.Size = new System.Drawing.Size(901, 236);
             this.tabControl1.TabIndex = 12;
             // 
             // tabPage1
@@ -298,7 +300,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(893, 307);
+            this.tabPage1.Size = new System.Drawing.Size(893, 206);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "門診處方籤";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -306,7 +308,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 10);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(881, 298);
@@ -318,7 +320,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(893, 307);
+            this.tabPage2.Size = new System.Drawing.Size(893, 206);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "長期處方籤";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -338,7 +340,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(893, 307);
+            this.tabPage3.Size = new System.Drawing.Size(893, 206);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "重要醫令";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -358,7 +360,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 26);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(893, 307);
+            this.tabPage4.Size = new System.Drawing.Size(893, 206);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "過敏藥物";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -378,7 +380,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 26);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(893, 307);
+            this.tabPage5.Size = new System.Drawing.Size(893, 206);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "就醫資料";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -407,17 +409,42 @@
             this.button11.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button11.Location = new System.Drawing.Point(37, 7);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(160, 54);
+            this.button11.Size = new System.Drawing.Size(82, 54);
             this.button11.TabIndex = 12;
-            this.button11.Text = "特定對象查詢作業";
+            this.button11.Text = "關懷名單查詢作業";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button1.Location = new System.Drawing.Point(125, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 54);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "雲端藥歷查詢作業";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("新細明體", 12F);
+            this.button2.Location = new System.Drawing.Point(337, 7);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(82, 54);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "測試按鈕";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 660);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.tabControl1);
@@ -433,7 +460,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "台中靜和醫院--健保卡查詢程式，更新日期：2012-02-21 15:00";
+            this.Text = "台中靜和醫院--健保卡查詢程式，更新日期：2014-03-17 10:00";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -486,6 +513,8 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.DataGridView dataGridView5;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

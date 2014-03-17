@@ -7,3 +7,8 @@ F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.Form2.resources
 F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.Properties.Resources.resources
 F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.csproj.GenerateResource.Cache
 F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.exe
+F:\SourceCode\CsCheck\CsCheck\bin\Debug\CsCheck.exe.manifest
+F:\SourceCode\CsCheck\CsCheck\bin\Debug\CsCheck.application
+F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.csprojResolveAssemblyReference.cache
+F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.exe.manifest
+F:\SourceCode\CsCheck\CsCheck\obj\Debug\CsCheck.application

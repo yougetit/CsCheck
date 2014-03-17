@@ -21,7 +21,7 @@ namespace CsCheck
             //MyClass.ToggleConfigEncryption("CsCheck.exe");
         }
         //設定程序用ie開啟連結
-        public System.Diagnostics.Process p = new System.Diagnostics.Process();
+        public System.Diagnostics.Process process = new System.Diagnostics.Process();
         //常數設定
         Encoding BIG5 = Encoding.GetEncoding("big5");
         bool m_IsPortOpened = false; //讀卡機通訊埠狀態
@@ -46,7 +46,7 @@ namespace CsCheck
         [DllImport("CsHis.dll", EntryPoint = "hisReadPrescription")]//讀取處方箋作業
         private static extern int hisReadPrescription(byte[] pOutpatientPrescription, ref int iBufferLenOutpatient, byte[] pLongTermPrescription, ref int iBufferLenLongTerm, byte[] pImportantTreatmentCode, ref int iBufferLenImportant, byte[] pIrritationDrug, ref int iBufferLenIrritation);
         [DllImport("CsHis.dll")]//取得控制軟體版本
-        private static extern int csGetVersionEx(byte[] pPath);
+        private static extern int csGetVersionEx(byte[] pPath, ref int iBufferLen);
         [DllImport("CsHis.dll")]//讀取卡片狀態
         private static extern int hisGetCardStatus(int CardType);
         [DllImport("CsHis.dll")]//讀取就醫資料不需HPC卡的部分
@@ -208,14 +208,14 @@ namespace CsCheck
             //closeCom();
         }
 
-        //寫入查詢計數
-        void csCheckCount(string ptName, string ptID, string result, string drName)
-        {
-            string time = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-            string sqlQuery = "INSERT INTO [GHHP].[dbo].[csCheckCount] (name, ID, datetime, result, dr) VALUES ('" + ptName + "', '" + ptID + "', '" + time + "', '" + result + "', '" + drName + "')";
-            MyClass.ExecuteNonQuery(sqlQuery);
-            //MessageBox.Show(MyClass.ExecuteNonQuery(sqlQuery).ToString());
-        }
+        //寫入查詢計數 20140317：不再統計查詢次數
+        //void csCheckCount(string ptName, string ptID, string result, string drName)
+        //{
+        //    string time = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+        //    string sqlQuery = "INSERT INTO [GHHP].[dbo].[csCheckCount] (name, ID, datetime, result, dr) VALUES ('" + ptName + "', '" + ptID + "', '" + time + "', '" + result + "', '" + drName + "')";
+        //    MyClass.ExecuteNonQuery(sqlQuery);
+        //    //MessageBox.Show(MyClass.ExecuteNonQuery(sqlQuery).ToString());
+        //}
 
         //醫事人員卡認證
         void verifyHPC()
@@ -742,19 +742,20 @@ namespace CsCheck
             closeCom();
         }
 
-        //
+        //關懷名單讀取
         void PEA_SamExeNhiQuery()
         {
-            if (m_IsSAMChecked == false)
-            {
-                msg("請先進行讀卡機認證。");
-                return;
-            }
-            if (m_IsHPCChecked == false)
-            {
-                msg("請先進行醫事卡認證。");
-                return;
-            }
+            //20140317：不檢查卡片狀態
+            //if (m_IsSAMChecked == false)
+            //{
+            //    msg("請先進行讀卡機認證。");
+            //    return;
+            //}
+            //if (m_IsHPCChecked == false)
+            //{
+            //    msg("請先進行醫事卡認證。");
+            //    return;
+            //}
             //private static extern int PEA_SamExeNhiQuery(byte[] sHostName, int nPort,byte[] sBusCode,int nCom,byte[] sHcaId,byte[] sPatId,byte[] sPatBirth);
             openCom();
             //健保局vpn ip
@@ -827,39 +828,33 @@ namespace CsCheck
             if (nErrCode == 0)
             {
                 MessageBox.Show("用藥關懷名單有資料！！");
-                p = System.Diagnostics.Process.Start("IExplore.exe", result);
-                csCheckCount(Name, PID, "0", drname);
+                process = System.Diagnostics.Process.Start("IExplore.exe", result);
+
+                //csCheckCount(Name, PID, "0", drname); 20140317：不再統計醫師查詢次數
 
             }
             else if (nErrCode == 1)
             {
                 MessageBox.Show("查詢成功，無資料");
-                csCheckCount(Name, PID, "1", drname);
+
+                //csCheckCount(Name, PID, "1", drname);
             }
             else if (nErrCode == -1)
             {
                 MessageBox.Show("醫事機構端執行失敗");
-                csCheckCount(Name, PID, "-1", drname);
+
+                //csCheckCount(Name, PID, "-1", drname);
             }
             else if (nErrCode == -2)
             {
                 MessageBox.Show("健保局服務主機端錯誤");
-                csCheckCount(Name, PID, "-2", drname);
+                
+                //csCheckCount(Name, PID, "-2", drname);
             }
 
             rtOutput.Text += DateTime.Now.ToLongTimeString() + "：" + result;
             rtOutput.Text += Environment.NewLine;
             downTextbox();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            openCom();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            closeCom();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -919,20 +914,42 @@ namespace CsCheck
 
         private void button11_Click(object sender, EventArgs e)
         {
+            //20140317：為了加快速度，不檢查健保卡狀態
             //檢查健保卡狀態
-            bool status = checkCardStatus();
+            //bool status = checkCardStatus();
             //如果非正常狀態，跳出訊息警告
-            if (!status)
-            {
-                return;
-            }
+            //if (!status)
+            //{
+            //    return;
+            //}
+
             //執行特定對象查詢動作
             PEA_SamExeNhiQuery();
         }
 
         private void rtOutput_LinkClicked(object sender, LinkClickedEventArgs e)
         {
-            p = System.Diagnostics.Process.Start("IExplore.exe", e.LinkText);
+            process = System.Diagnostics.Process.Start("IExplore.exe", e.LinkText);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string cloudCheckLink = "https://10.253.253.245/imme0000/IMME0002S01.aspx";
+            process = System.Diagnostics.Process.Start("IExplore.exe", cloudCheckLink);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            //int iBufferLen = 1;
+            //byte[] pPath = new byte[iBufferLen];
+            //int code = csGetVersionEx(pPath, ref iBufferLen);
+            //Encoding BIG5 = Encoding.GetEncoding("big5");
+            //string outMessage = BIG5.GetString(pPath).Trim();
+            //msg(outMessage);
+            openCom();
+            int status = hisGetCardStatus(2);
+            MessageBox.Show(status.ToString());
+            closeCom();
         }
     }
 }

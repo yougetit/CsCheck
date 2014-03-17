@@ -8,3 +8,7 @@ F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.Properties.Resources.resources
 F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.csproj.GenerateResource.Cache
 F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.exe
 F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.csprojResolveAssemblyReference.cache
+F:\SourceCode\CsCheck\CsCheck\bin\Release\CsCheck.exe.manifest
+F:\SourceCode\CsCheck\CsCheck\bin\Release\CsCheck.application
+F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.exe.manifest
+F:\SourceCode\CsCheck\CsCheck\obj\Release\CsCheck.application
